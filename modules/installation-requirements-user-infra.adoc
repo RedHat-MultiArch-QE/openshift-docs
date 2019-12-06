@@ -4,6 +4,7 @@
 // * installing/installing_restricted_networks/installing-restricted-networks-bare-metal.adoc
 // * installing/installing_restricted_networks/installing-restricted-networks-vsphere.adoc
 // * installing/installing_vsphere/installing-vsphere.adoc
+// * installing/installing_ibm_z/installing-ibm-z.adoc
 
 [id="installation-requirements-user-infra_{context}"]
 = Machine requirements for a cluster with user-provisioned infrastructure
@@ -14,7 +15,7 @@ of the required machines.
 [id="machine-requirements_{context}"]
 == Required machines
 
-The smallest {product-title} clusters require the following machines:
+The smallest {product-title} clusters require the following hosts:
 
 * One temporary bootstrap machine
 
@@ -32,7 +33,7 @@ you install the cluster.
 [IMPORTANT]
 ====
 ifeval::["{context}" == "installing-ibm-z"]
-To improve high availability of your cluster, distribute the control plane machines over different z/VM instances. These can, but need not run on the same Z or LinuxONE hardware.
+To improve high availability of your cluster, distribute the control plane machines over different z/VM instances. These can, but need not, run on the same Z or LinuxONE hardware.
 endif::[]
 ifeval::["{context}" != "installing-ibm-z"]
 To maintain high availability of your cluster, use separate physical hosts for
@@ -46,15 +47,12 @@ operating system.
 [id="network-connectivity_{context}"]
 == Network connectivity requirements
 
+All the {op-system-first} machines require network in `initramfs` during boot to fetch Ignition config files from the Machine Config Server.
 ifeval::["{context}" == "installing-ibm-z"]
-All the {op-system-first} machines require network in `initramfs` during boot
-to fetch Ignition config files from the Machine Config Server. The machines are configured with static IP
-addresses. No DHCP server is required.
+The machines are configured with static IP addresses. No DHCP server is required.
 endif::[]
 ifeval::["{context}" != "installing-ibm-z"]
-All the {op-system-first} machines require network in `initramfs` during boot
-to fetch Ignition config files from the Machine Config Server. During the initial
-boot, the machines require a DHCP server in order to establish a network
+During the initial boot, the machines require a DHCP server in order to establish a network
 connection to download their Ignition config files.
 endif::[]
 
@@ -65,7 +63,7 @@ ifeval::["{context}" == "installing-ibm-z"]
 To install on IBM Z under z/VM, you require a single z/VM virtual NIC in layer 2 mode. You also need:
 
 *   A direct-attached OSA or RoCE network adapter
-*   A z/VM VSwitch set up (for a preferred setup, use OSA link aggregation)
+*   A z/VM VSwitch set up. For a preferred setup, use OSA link aggregation.
 endif::[]
 
 [id="minimum-resource-requirements_{context}"]
@@ -117,9 +115,9 @@ ifeval::["{context}" == "installing-ibm-z"]
 
 On your z/VM instance, set up:
 
-* 3 guest virtual machines for OCP control plane machines (master nodes)
-* 3 guest virtual mchines  for OCP compute machines (worker nodes)
-* 1 guest virtual machine for the temporary OCP bootstrap machine
+* 3 guest virtual machines for {product-title} control plane machines
+* 3 guest virtual mchines  for {product-title} compute machines
+* 1 guest virtual machine for the temporary {product-title} bootstrap machine
 
 === Disk storage for the z/VM guest virtual machines 
 
@@ -128,9 +126,9 @@ On your z/VM instance, set up:
 
 === Storage / Main Memory
 
-* 16 GB for OCP control plane machines (master nodes)
-* 8 GB for OCP compute machines (worker nodes)
-* 16 GB for the temporary OCP bootstrap machine
+* 16 GB for {product-title} control plane machines
+* 8 GB for {product-title} compute machines
+* 16 GB for the temporary {product-title} bootstrap machine
 
 == Preferred IBM Z system requirements
 
@@ -145,9 +143,9 @@ On your z/VM instance, set up:
 
 On your z/VM instances, set up:
 
-* 3 guest virtual machines for OCP control plane machines, one per z/VM instance
-* At least 6 guest virtual mchines for OCP compute machines, distributed across the z/VM instances
-* 1 guest virtual machine for the temporary OCP bootstrap machine
+* 3 guest virtual machines for {product-title} control plane machines, one per z/VM instance
+* At least 6 guest virtual machines for {product-title} compute machines, distributed across the z/VM instances
+* 1 guest virtual machine for the temporary {product-title} bootstrap machine
 
 === Disk storage for the z/VM guest virtual machines 
 
@@ -156,9 +154,9 @@ On your z/VM instances, set up:
 
 === Storage / Main Memory
 
-* 16 GB for OCP control plane machines (master nodes)
-* 8 GB for OCP compute machines (worker nodes)
-* 16 GB for the temporary OCP bootstrap machine
+* 16 GB for {product-title} control plane machines
+* 8 GB for {product-title} compute machines
+* 16 GB for the temporary {product-title} bootstrap machine
 endif::[]
 
 [id="csr_management_{context}"]
