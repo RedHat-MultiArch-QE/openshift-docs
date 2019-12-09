@@ -100,7 +100,7 @@ rd.znet=qeth,0.0.bdf0,0.0.bdf1,0.0.bdf2,layer2=1,portno=0 zfcp.allow_lun_scan=0 
 . Transfer the initramfs, kernel, parameter files, and RHCOS images to z/VM, for example with FTP. For details about how to transfer the files with FTP and boot from the virtual reader, see https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/sect-installing-zvm-s390.
 . Punch the files to the virtual reader of the z/VM guest virtual machine that is to become your bootstrap node.
 +
-For details about the PUNCH command, see https://www.ibm.com/support/knowledgecenter/en/SSB27U_6.4.0/com.ibm.zvm.v640.dmsb4/pun.htm
+For details about the PUNCH command, see https://www.ibm.com/support/knowledgecenter/en/SSB27U_7.1.0/com.ibm.zvm.v710.dmsb4/pun.htm
 +
 [TIP]
 ====
@@ -109,6 +109,9 @@ You can use the CP PUNCH command or, if you use Linux, the **vmur** command to t
 +
 . Log in to CMS on the bootstrap machine.
 . IPL the bootstrap machine from the reader: `ipl c`
++
+For details about the IPL command, see https://www.ibm.com/support/knowledgecenter/en/SSB27U_7.1.0/com.ibm.zvm.v710.hcpa5/dipl.htm
++
 . Repeat this procedure for the other machines in the cluster.
 endif::[]
 
