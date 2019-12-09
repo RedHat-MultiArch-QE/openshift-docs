@@ -118,7 +118,7 @@ ifeval::["{context}" == "installing-ibm-z"]
 On your z/VM instance, set up:
 
 * 3 guest virtual machines for {product-title} control plane machines
-* 3 guest virtual mchines  for {product-title} compute machines
+* 2 guest virtual machines for {product-title} compute machines
 * 1 guest virtual machine for the temporary {product-title} bootstrap machine
 
 [discrete]
