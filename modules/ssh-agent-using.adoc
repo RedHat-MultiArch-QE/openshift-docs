@@ -63,12 +63,14 @@ deploy the cluster, the key is added to the `core` user's
 `~/.ssh/authorized_keys` list.
 
 ifndef::osp[]
+ifeval::["{context}" != "installing-ibm-z"]
 [NOTE]
 ====
 You must use a local key, not one that you configured with platform-specific
 approaches such as
 link:https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html[AWS key pairs].
 ====
+endif::[]
 endif::osp[]
 
 .Procedure
