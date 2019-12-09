@@ -41,7 +41,7 @@ these cluster machines.
 endif::[]
 ====
 
-The bootstrap and control plane machines must use {op-system-first} as the
+The bootstrap, control plane and compute machines must use the {op-system-first} as the
 operating system.
 
 [id="network-connectivity_{context}"]
@@ -93,7 +93,7 @@ Each cluster machine must meet the following minimum requirements:
 |120 GB
 
 |Compute
-|{op-system} or RHEL 7.6
+|{op-system}
 |2
 |8 GB
 |120 GB
@@ -104,11 +104,13 @@ ifeval::["{context}" == "installing-ibm-z"]
 [id="minimum-ibm-z-system-requirements_{context}"]
 == Minimum IBM Z system requirements
 
+[discrete]
 === Hardware requirements
 
 * 1 LPAR with 3 IFLs that supports SMT2
 * 1 OSA or RoCE network adapter, or both
 
+[discrete]
 === Operating system requirements
 
 * One instance of z/VM 7.1
@@ -119,24 +121,29 @@ On your z/VM instance, set up:
 * 3 guest virtual mchines  for {product-title} compute machines
 * 1 guest virtual machine for the temporary {product-title} bootstrap machine
 
+[discrete]
 === Disk storage for the z/VM guest virtual machines 
 
 * FICON attached disk storage (DASDs). These can be z/VM minidisks, fullpack minidisks, or dedicated DASDs. If available, use HyperPAV to ensure optimal performance.
 * FCP attached disk storage
 
+[discrete]
 === Storage / Main Memory
 
 * 16 GB for {product-title} control plane machines
 * 8 GB for {product-title} compute machines
 * 16 GB for the temporary {product-title} bootstrap machine
 
+[id="preferred-ibm-z-system-requirements_{context}"]
 == Preferred IBM Z system requirements
 
+[discrete]
 === Hardware requirements
 
 * 3 LPARs with 6 IFLs that support SMT2
 * 1 or 2 OSA or RoCE network adapters, or both
 
+[discrete]
 === Operating system requirements
 
 * 2 or 3 instances of z/VM 7.1 for high availability
@@ -147,11 +154,13 @@ On your z/VM instances, set up:
 * At least 6 guest virtual machines for {product-title} compute machines, distributed across the z/VM instances
 * 1 guest virtual machine for the temporary {product-title} bootstrap machine
 
+[discrete]
 === Disk storage for the z/VM guest virtual machines 
 
 * FICON attached disk storage (DASDs). These can be z/VM minidisks, fullpack minidisks, or dedicated DASDs. If available, use HyperPAV to ensure optimal performance.
 * FCP attached disk storage
 
+[discrete]
 === Storage / Main Memory
 
 * 16 GB for {product-title} control plane machines
